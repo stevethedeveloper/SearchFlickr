@@ -78,7 +78,7 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
-        cell.text.text = "adsf"
+        cell.text.text = data[indexPath.row]
         return cell
     }
     

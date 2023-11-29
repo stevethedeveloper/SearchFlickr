@@ -18,6 +18,7 @@
 		AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0002B16C2F200633BCD /* DelayTextField.swift */; };
 		AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0022B16C35400633BCD /* UITextField+Ext.swift */; };
 		AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */; };
+		AA49E0092B1728D800633BCD /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0082B1728D800633BCD /* Photos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		AA49E0002B16C2F200633BCD /* DelayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayTextField.swift; sourceTree = "<group>"; };
 		AA49E0022B16C35400633BCD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		AA49E0082B1728D800633BCD /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		AA49DFCA2B16BBDE00633BCD /* SearchFlickr */ = {
 			isa = PBXGroup;
 			children = (
+				AA49E0072B17225D00633BCD /* Models */,
 				AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */,
 				AA49DFFE2B16C1C800633BCD /* Supporting */,
 				AA49DFFD2B16C1B100633BCD /* Controllers */,
@@ -163,6 +166,14 @@
 				AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AA49E0072B17225D00633BCD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA49E0082B1728D800633BCD /* Photos.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 				AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */,
 				AA49DFCE2B16BBDE00633BCD /* SceneDelegate.swift in Sources */,
 				AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */,
+				AA49E0092B1728D800633BCD /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
