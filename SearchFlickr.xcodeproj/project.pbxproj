@@ -15,6 +15,8 @@
 		AA49DFED2B16BBE000633BCD /* SearchFlickrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49DFEC2B16BBE000633BCD /* SearchFlickrUITests.swift */; };
 		AA49DFEF2B16BBE000633BCD /* SearchFlickrUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49DFEE2B16BBE000633BCD /* SearchFlickrUITestsLaunchTests.swift */; };
 		AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49DFFB2B16C12600633BCD /* SearchViewController.swift */; };
+		AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0002B16C2F200633BCD /* DelayTextField.swift */; };
+		AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0022B16C35400633BCD /* UITextField+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		AA49DFEC2B16BBE000633BCD /* SearchFlickrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlickrUITests.swift; sourceTree = "<group>"; };
 		AA49DFEE2B16BBE000633BCD /* SearchFlickrUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFlickrUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AA49DFFB2B16C12600633BCD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AA49E0002B16C2F200633BCD /* DelayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayTextField.swift; sourceTree = "<group>"; };
+		AA49E0022B16C35400633BCD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 		AA49DFCA2B16BBDE00633BCD /* SearchFlickr */ = {
 			isa = PBXGroup;
 			children = (
+				AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */,
 				AA49DFFE2B16C1C800633BCD /* Supporting */,
 				AA49DFFD2B16C1B100633BCD /* Controllers */,
 				AA49DFD92B16BBE000633BCD /* Info.plist */,
@@ -138,6 +143,15 @@
 				AA49DFD62B16BBE000633BCD /* LaunchScreen.storyboard */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */ = {
+			isa = PBXGroup;
+			children = (
+				AA49E0002B16C2F200633BCD /* DelayTextField.swift */,
+				AA49E0022B16C35400633BCD /* UITextField+Ext.swift */,
+			);
+			path = "Extensions+Utulities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA49DFCC2B16BBDE00633BCD /* AppDelegate.swift in Sources */,
+				AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */,
 				AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */,
 				AA49DFCE2B16BBDE00633BCD /* SceneDelegate.swift in Sources */,
+				AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
