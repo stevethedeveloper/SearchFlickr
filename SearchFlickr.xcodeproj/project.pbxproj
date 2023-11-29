@@ -20,6 +20,8 @@
 		AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */; };
 		AA49E0092B1728D800633BCD /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0082B1728D800633BCD /* Photos.swift */; };
 		AA8C42422B17BE0000455F97 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42412B17BE0000455F97 /* Observable.swift */; };
+		AA8C42442B17C5F100455F97 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42432B17C5F100455F97 /* SearchViewModel.swift */; };
+		AA8C42482B17DCF400455F97 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA8C42472B17DCF400455F97 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA49E0082B1728D800633BCD /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		AA8C42412B17BE0000455F97 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		AA8C42432B17C5F100455F97 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8C42482B17DCF400455F97 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,12 +111,13 @@
 		AA49DFCA2B16BBDE00633BCD /* SearchFlickr */ = {
 			isa = PBXGroup;
 			children = (
-				AA49E0072B17225D00633BCD /* Models */,
-				AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */,
 				AA49DFFE2B16C1C800633BCD /* Supporting */,
+				AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */,
+				AA49E0072B17225D00633BCD /* Models */,
 				AA49DFFD2B16C1B100633BCD /* Controllers */,
 				AA49E0042B16D1BD00633BCD /* Views */,
 				AA49DFD92B16BBE000633BCD /* Info.plist */,
+				AA8C42452B17C60000455F97 /* View Models */,
 			);
 			path = SearchFlickr;
 			sourceTree = "<group>";
@@ -179,6 +184,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AA8C42452B17C60000455F97 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				AA8C42432B17C5F100455F97 /* SearchViewModel.swift */,
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +208,9 @@
 			dependencies = (
 			);
 			name = SearchFlickr;
+			packageProductDependencies = (
+				AA8C42472B17DCF400455F97 /* SDWebImage */,
+			);
 			productName = SearchFlickr;
 			productReference = AA49DFC82B16BBDE00633BCD /* SearchFlickr.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +283,9 @@
 				Base,
 			);
 			mainGroup = AA49DFBF2B16BBDE00633BCD;
+			packageReferences = (
+				AA8C42462B17DCF400455F97 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = AA49DFC92B16BBDE00633BCD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,6 +334,7 @@
 				AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */,
 				AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */,
 				AA49DFCE2B16BBDE00633BCD /* SceneDelegate.swift in Sources */,
+				AA8C42442B17C5F100455F97 /* SearchViewModel.swift in Sources */,
 				AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */,
 				AA49E0092B1728D800633BCD /* Photos.swift in Sources */,
 			);
@@ -655,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AA8C42462B17DCF400455F97 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA8C42472B17DCF400455F97 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AA8C42462B17DCF400455F97 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA49DFC02B16BBDE00633BCD /* Project object */;
 }

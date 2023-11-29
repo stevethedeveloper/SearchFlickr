@@ -13,20 +13,16 @@ import Foundation
 
 struct Photos: Decodable {
     var title: String
-    var link: String
-    var description: String
-    var modified: Date
-    var generator: String
-    var items: [Item]
+    var items: [Photo]
 }
 
-struct Item: Decodable {
+struct Photo: Decodable {
     var title: String
     var link: String
     var photoUrl: String
-    var dateTaken: Date
+    var dateTaken: String
     var description: String
-    var published: Date
+    var published: String
     var author: String
     var authorId: String
     var tags: String
@@ -54,9 +50,9 @@ struct Item: Decodable {
         // Root level
         self.title = try rootContainer.decode(String.self, forKey: .title)
         self.link = try rootContainer.decode(String.self, forKey: .link)
-        self.dateTaken = try rootContainer.decode(Date.self, forKey: .dateTaken)
+        self.dateTaken = try rootContainer.decode(String.self, forKey: .dateTaken)
         self.description = try rootContainer.decode(String.self, forKey: .description)
-        self.published = try rootContainer.decode(Date.self, forKey: .published)
+        self.published = try rootContainer.decode(String.self, forKey: .published)
         self.author = try rootContainer.decode(String.self, forKey: .author)
         self.authorId = try rootContainer.decode(String.self, forKey: .authorId)
         self.tags = try rootContainer.decode(String.self, forKey: .tags)

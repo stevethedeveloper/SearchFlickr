@@ -10,6 +10,7 @@ import UIKit
 class DelayedTextField: UITextField {
     var delay: Double = 1.0
     var timer: Timer?
+    var completion: (() -> Void)?
     
     convenience init() {
         self.init(frame: .zero)
@@ -23,6 +24,8 @@ class DelayedTextField: UITextField {
     }
     
     @objc func executeAction() {
-        print(self.text)
+        if let completion = completion {
+            completion()
+        }
     }
 }
