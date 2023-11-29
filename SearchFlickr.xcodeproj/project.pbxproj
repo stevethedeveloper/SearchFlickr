@@ -17,6 +17,7 @@
 		AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49DFFB2B16C12600633BCD /* SearchViewController.swift */; };
 		AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0002B16C2F200633BCD /* DelayTextField.swift */; };
 		AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0022B16C35400633BCD /* UITextField+Ext.swift */; };
+		AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AA49DFFB2B16C12600633BCD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA49E0002B16C2F200633BCD /* DelayTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayTextField.swift; sourceTree = "<group>"; };
 		AA49E0022B16C35400633BCD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				AA49DFFF2B16C29E00633BCD /* Extensions+Utulities */,
 				AA49DFFE2B16C1C800633BCD /* Supporting */,
 				AA49DFFD2B16C1B100633BCD /* Controllers */,
+				AA49E0042B16D1BD00633BCD /* Views */,
 				AA49DFD92B16BBE000633BCD /* Info.plist */,
 			);
 			path = SearchFlickr;
@@ -152,6 +155,14 @@
 				AA49E0022B16C35400633BCD /* UITextField+Ext.swift */,
 			);
 			path = "Extensions+Utulities";
+			sourceTree = "<group>";
+		};
+		AA49E0042B16D1BD00633BCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */,
 				AA49DFCC2B16BBDE00633BCD /* AppDelegate.swift in Sources */,
 				AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */,
 				AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */,

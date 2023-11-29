@@ -9,6 +9,13 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    
+    var data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    
+    private var collectionView: UICollectionView!
+    
+    
+    
     // Custom text field with delayed closure
     private let titleField = DelayedTextField()
     
@@ -38,17 +45,42 @@ class SearchViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
         titleField.setLeftPaddingPoints(10)
         titleField.setRightPaddingPoints(10)
+        
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSizeMake(150, 150)
+        layout.scrollDirection = .vertical
+        layout.collectionView?.alwaysBounceVertical = true
+        layout.collectionView?.isScrollEnabled = true
+        collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: ImageCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        let collectionViewConstraints = [
+            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: titleField.bottomAnchor, constant: 10),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ]
+        NSLayoutConstraint.activate(collectionViewConstraints)
+
+        
+        
+    }
+}
+
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
+        cell.text.text = "adsf"
+        return cell
     }
-    */
-
+    
+    
 }
