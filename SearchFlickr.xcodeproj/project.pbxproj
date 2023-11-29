@@ -19,6 +19,7 @@
 		AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0022B16C35400633BCD /* UITextField+Ext.swift */; };
 		AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */; };
 		AA49E0092B1728D800633BCD /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49E0082B1728D800633BCD /* Photos.swift */; };
+		AA8C42422B17BE0000455F97 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42412B17BE0000455F97 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		AA49E0022B16C35400633BCD /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		AA49E0052B16D1EF00633BCD /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA49E0082B1728D800633BCD /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		AA8C42412B17BE0000455F97 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				AA49E0002B16C2F200633BCD /* DelayTextField.swift */,
 				AA49E0022B16C35400633BCD /* UITextField+Ext.swift */,
+				AA8C42412B17BE0000455F97 /* Observable.swift */,
 			);
 			path = "Extensions+Utulities";
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA8C42422B17BE0000455F97 /* Observable.swift in Sources */,
 				AA49E0062B16D1EF00633BCD /* ImageCollectionViewCell.swift in Sources */,
 				AA49DFCC2B16BBDE00633BCD /* AppDelegate.swift in Sources */,
 				AA49E0032B16C35400633BCD /* UITextField+Ext.swift in Sources */,
