@@ -11,13 +11,14 @@ public class SearchViewModel {
     
     private let urlSession = URLSession.shared
     
-    var photoResults: Photos?
+    private var photoResults: Photos?
     
     var onErrorHandling: ((String) -> Void)?
     
     var data: Observable<[Photo]> = Observable([])
     
-    func fetchPhotos(for searchTerm: String?) async {        
+    // fetch photo JSON
+    func fetchPhotos(for searchTerm: String?) async {
         guard let searchTerm = searchTerm, !searchTerm.isEmpty else {
             data.value = []
             return
@@ -28,6 +29,7 @@ public class SearchViewModel {
         do {
             let (returnData, _) = try await urlSession.data(from: url)
             self.parsePhotos(json: returnData)
+            // Set data Observable
             if let allPhotos = self.photoResults?.items {
                 if allPhotos.count > 0 {
                     self.data.value = allPhotos
@@ -37,7 +39,8 @@ public class SearchViewModel {
             onErrorHandling?("Could not retrieve videos.  Please check your connection and try again.")
         }
     }
-        
+    
+    // Parse JSON and set photoResults
     private func parsePhotos(json: Data) {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase

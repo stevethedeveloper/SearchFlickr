@@ -19,10 +19,11 @@ class DelayedTextField: UITextField {
     
     @objc func valueChanged() {
         timer?.invalidate()
-        // set timer
+        // set timer for completion handler
         timer = Timer.scheduledTimer(timeInterval: delay, target: self, selector: #selector(executeAction), userInfo: nil, repeats: false)
     }
     
+    // execute completion handler
     @objc func executeAction() {
         if let completion = completion {
             completion()

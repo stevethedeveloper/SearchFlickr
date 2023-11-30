@@ -22,6 +22,7 @@
 		AA8C42422B17BE0000455F97 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42412B17BE0000455F97 /* Observable.swift */; };
 		AA8C42442B17C5F100455F97 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42432B17C5F100455F97 /* SearchViewModel.swift */; };
 		AA8C42482B17DCF400455F97 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = AA8C42472B17DCF400455F97 /* SDWebImage */; };
+		AA8C424A2B17F2F800455F97 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8C42492B17F2F800455F97 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		AA49E0082B1728D800633BCD /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		AA8C42412B17BE0000455F97 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		AA8C42432B17C5F100455F97 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AA8C42492B17F2F800455F97 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				AA49DFFB2B16C12600633BCD /* SearchViewController.swift */,
+				AA8C42492B17F2F800455F97 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				AA49DFFC2B16C12600633BCD /* SearchViewController.swift in Sources */,
 				AA49DFCE2B16BBDE00633BCD /* SceneDelegate.swift in Sources */,
 				AA8C42442B17C5F100455F97 /* SearchViewModel.swift in Sources */,
+				AA8C424A2B17F2F800455F97 /* DetailViewController.swift in Sources */,
 				AA49E0012B16C2F200633BCD /* DelayTextField.swift in Sources */,
 				AA49E0092B1728D800633BCD /* Photos.swift in Sources */,
 			);

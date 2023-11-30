@@ -10,18 +10,12 @@ import UIKit
 class SearchViewController: UIViewController {
     private let viewModel = SearchViewModel()
     
-//    var data = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-    
     private var collectionView: UICollectionView!
     
     override func loadView() {
         let view = UIView()
         self.view = view
         view.backgroundColor = .systemBackground
-        
-//        Task {
-//            await viewModel.fetchPhotos()
-//        }
     }
     
     // Custom text field with delayed closure
@@ -31,8 +25,32 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Search Flickr"
+        navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.backgroundColor = .systemRed
+        navigationController?.navigationBar.backgroundColor = .secondarySystemFill
+        
+        configureSearchField()
+        configureCollectionView()
+
+        // Bind to view model's data property and reload data in collection view on change
+        viewModel.data.bind { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.collectionView?.reloadData()
+            }
+        }
+
+        // Show error dialog
+        viewModel.onErrorHandling = { error in
+            DispatchQueue.main.async {
+                let ac = UIAlertController(title: "An error occured", message: error, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(ac, animated: true)
+            }
+        }
+    }
+    
+    private func configureSearchField() {
+        view.addSubview(searchField)
         
         searchField.completion = { [weak self] in
             Task {
@@ -46,7 +64,6 @@ class SearchViewController: UIViewController {
         searchField.textColor = .label
         searchField.backgroundColor = .systemBackground
         
-        view.addSubview(searchField)
         
         searchField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,8 +76,9 @@ class SearchViewController: UIViewController {
         NSLayoutConstraint.activate(constraints)
         searchField.setLeftPaddingPoints(10)
         searchField.setRightPaddingPoints(10)
-        
-        
+    }
+
+    private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSizeMake(150, 150)
         layout.scrollDirection = .vertical
@@ -79,22 +97,6 @@ class SearchViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
         NSLayoutConstraint.activate(collectionViewConstraints)
-
-        // Bind to view model's data property and reload data in collection view on change
-        viewModel.data.bind { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.collectionView?.reloadData()
-            }
-        }
-
-        // Show error dialog
-        viewModel.onErrorHandling = { error in
-            DispatchQueue.main.async {
-                let ac = UIAlertController(title: "An error occured", message: error, preferredStyle: .alert)
-                ac.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(ac, animated: true)
-            }
-        }
     }
 }
 
@@ -107,5 +109,11 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as! ImageCollectionViewCell
         cell.configure(with: viewModel.data.value[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        vc.photo = viewModel.data.value[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
