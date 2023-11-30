@@ -19,10 +19,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Custom text field with delayed closure
-    // private let searchField = DelayedTextField()
-
-    // Regular text field
-    private let searchField = UITextField()
+    // I can change this to use the delegate method below, however I think this is more reliable
+    private let searchField = DelayedTextField()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +33,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         configureSearchField()
         configureCollectionView()
         
-        searchField.delegate = self
+//    Intentionally left in to demonstrate - delegate
+//        searchField.delegate = self
         
         // Bind to view model's data property and reload data in collection view on change
         viewModel.data.bind { [weak self] _ in
@@ -53,23 +52,24 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        Task {
-            await viewModel.fetchPhotos(for: self.searchField.text)
-        }
-        return true
-    }
+
+//    Intentionally left in to demonstrate - delegate
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        Task {
+//            await viewModel.fetchPhotos(for: self.searchField.text)
+//        }
+//        return true
+//    }
     
     private func configureSearchField() {
         view.addSubview(searchField)
 
-// delayed text field
-//        searchField.completion = { [weak self] in
-//            Task {
-//                await self?.viewModel.fetchPhotos(for: self?.searchField.text)
-//            }
-//        }
+        // delayed text field
+        searchField.completion = { [weak self] in
+            Task {
+                await self?.viewModel.fetchPhotos(for: self?.searchField.text)
+            }
+        }
         searchField.placeholder = "Enter search terms, separated by commas"
         searchField.layer.borderColor = UIColor.systemGray4.cgColor
         searchField.layer.borderWidth = 1
