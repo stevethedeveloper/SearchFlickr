@@ -18,10 +18,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .systemBackground
     }
     
-    // Custom text field with delayed closure
-    // I can change this to use the delegate method below, however I think this is more reliable
-    private let searchField = DelayedTextField()
-
+    private let searchField = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,9 +30,6 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         configureSearchField()
         configureCollectionView()
-        
-//    Intentionally left in to demonstrate - delegate
-//        searchField.delegate = self
         
         // Bind to view model's data property and reload data in collection view on change
         viewModel.data.bind { [weak self] _ in
@@ -51,25 +46,34 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                 self.present(ac, animated: true)
             }
         }
+        
+        searchField.delegate = self
+        
+        // Gesture recognizer to dismiss keyboard
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
-
-//    Intentionally left in to demonstrate - delegate
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        Task {
-//            await viewModel.fetchPhotos(for: self.searchField.text)
-//        }
-//        return true
-//    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func updateData() {
+        Task {
+            await viewModel.fetchPhotos(for: self.searchField.text)
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.updateData), object: textField)
+        perform(#selector(self.updateData), with: textField, afterDelay: 0.2)
+        return true
+    }
     
     private func configureSearchField() {
         view.addSubview(searchField)
-
-        // delayed text field
-        searchField.completion = { [weak self] in
-            Task {
-                await self?.viewModel.fetchPhotos(for: self?.searchField.text)
-            }
-        }
+        
         searchField.placeholder = "Enter search terms, separated by commas"
         searchField.layer.borderColor = UIColor.systemGray4.cgColor
         searchField.layer.borderWidth = 1
