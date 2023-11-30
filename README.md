@@ -15,4 +15,4 @@ Take home
 - Dynamic text
 - Uses SDWebImage for downloading images in collection view, with caching
 
-# There's a lot of ways to improve this, and I'd be happy to discuss them.  Some examples include things in the extra credit list, such as Accessibility, showing the metadata, sharing, and things not on the list like styling.
+## There's a lot of ways to improve this, and I'd be happy to discuss them.  Some examples include things in the extra credit list, such as Accessibility, showing the metadata, and sharing.
