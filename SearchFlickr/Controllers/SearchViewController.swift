@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
     private let viewModel = SearchViewModel()
     
     private var collectionView: UICollectionView!
@@ -19,8 +19,11 @@ class SearchViewController: UIViewController {
     }
     
     // Custom text field with delayed closure
-    private let searchField = DelayedTextField()
-    
+    // private let searchField = DelayedTextField()
+
+    // Regular text field
+    private let searchField = UITextField()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,14 +34,16 @@ class SearchViewController: UIViewController {
         
         configureSearchField()
         configureCollectionView()
-
+        
+        searchField.delegate = self
+        
         // Bind to view model's data property and reload data in collection view on change
         viewModel.data.bind { [weak self] _ in
             DispatchQueue.main.async {
                 self?.collectionView?.reloadData()
             }
         }
-
+        
         // Show error dialog
         viewModel.onErrorHandling = { error in
             DispatchQueue.main.async {
@@ -49,21 +54,28 @@ class SearchViewController: UIViewController {
         }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        Task {
+            await viewModel.fetchPhotos(for: self.searchField.text)
+        }
+        return true
+    }
+    
     private func configureSearchField() {
         view.addSubview(searchField)
-        
-        searchField.completion = { [weak self] in
-            Task {
-                await self?.viewModel.fetchPhotos(for: self?.searchField.text)
-            }
-        }
+
+// delayed text field
+//        searchField.completion = { [weak self] in
+//            Task {
+//                await self?.viewModel.fetchPhotos(for: self?.searchField.text)
+//            }
+//        }
         searchField.placeholder = "Enter search terms, separated by commas"
         searchField.layer.borderColor = UIColor.systemGray4.cgColor
         searchField.layer.borderWidth = 1
         searchField.layer.cornerRadius = 10.0
         searchField.textColor = .label
         searchField.backgroundColor = .systemBackground
-        
         
         searchField.translatesAutoresizingMaskIntoConstraints = false
         
@@ -77,7 +89,7 @@ class SearchViewController: UIViewController {
         searchField.setLeftPaddingPoints(10)
         searchField.setRightPaddingPoints(10)
     }
-
+    
     private func configureCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSizeMake(150, 150)

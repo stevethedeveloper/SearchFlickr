@@ -8,7 +8,7 @@
 import UIKit
 
 class DelayedTextField: UITextField {
-    var delay: Double = 1.0
+    var delay: Double = 0
     var timer: Timer?
     var completion: (() -> Void)?
     
